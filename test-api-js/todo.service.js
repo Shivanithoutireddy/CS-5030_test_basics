@@ -23,7 +23,7 @@ class todoservice{
     }
 
     add_todo(todo){
-        // Your code here
+        console.log (this.todos);
     }
 
     delete_todo(id){
