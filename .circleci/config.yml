@@ -23,11 +23,11 @@ jobs:
       - run:
           name: install dependencies
           command: cd test_javascript && npm install
-install
+
       - run:
           name: run tests
           command: cd test_javascript && npm run test
-test
+
   build-and-test-api-js:
     docker:
       - image: cimg/node:14.20.0
