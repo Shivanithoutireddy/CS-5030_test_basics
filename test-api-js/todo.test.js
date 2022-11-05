@@ -22,6 +22,22 @@ describe('todo test suite', () => {
     
 
     // Write all your test cases here that corresponds to software requirements
+    test("add_todos", ()=>{
+        todo_service.add_todo({"id":3,"title":"shivani","done":true});        
+        expect(todo_service.get_todos().todo.length).toEqual(4);
+    })
 
+    test("update_todo",()=>{
+        const expected = {"id":1,"title":"PSD",done: true}
+        todo_service.update_todo(id=1,todo={"id":1,"title":"PSD",done: true})
+        expect(todo_service.get_todos().todo.length).toEqual(4);
+        const actual = (todo_service.get_todos().todo).find(i=>i["id"]===1)
+        expect(actual).toMatchObject(expected)
+    })
+
+    test("delete_todos", ()=>{
+        todo_service.delete_todo(1);
+        expect(todo_service.get_todos().todo.length).toEqual(3);
+    })
 
 });

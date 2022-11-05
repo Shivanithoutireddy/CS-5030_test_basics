@@ -1,14 +1,17 @@
 class todoservice{
     todo_data = {
         "todo":[{
+            "id":0,
             "title": "T1",
             "description": "D1",
             "done": false
         },{
+            "id":1,
             "title": "T1",
             "description": "D1",
             "done": false
         },{
+            "id":2,
             "title": "T1",
             "description": "D1",
             "done": false
@@ -23,17 +26,24 @@ class todoservice{
     }
 
     add_todo(todo){
-        console.log (this.todos);
+        this.todos["todo"].push(todo)
     }
 
     delete_todo(id){
-        // Your code here
+        this.modifiedTodos = this.todos["todo"].filter(i=>i["id"]!==id)
+        this.todos["todo"] = this.modifiedTodos
     }
 
     update_todo(id, todo){
-        // Your code here
+        this.targetIndex = this.todos["todo"].findIndex(i=>i["id"]===id)
+        this.todos["todo"][this.targetIndex] = todo
     }
 }
 
+const a = new todoservice();
+a.add_todo({"id":6,"title":"dummy","done":true})
+a.update_todo(6,{"id":5,"title":"sunny","done":false})
+a.delete_todo(5,{"id":5,"title":"sunny","done":false})
+console.log(a.get_todos())
 
 module.exports= todoservice;
