@@ -28,6 +28,7 @@ jobs:
        - run:
            name: run tests
            command: cd test_javascript && npm run test
+
     build-and-test-api-js:
      
      docker:
@@ -36,7 +37,7 @@ jobs:
        - checkout
        - run:
            name: install dependencies
-           command: cd test-api-jst && npm install
+           command: cd test-api-js && npm install
       
        - run:
            name: run tests
